@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	c "github.com/thinhcompany/go-ecommerce-backend-api/internal/controller"
 )
 
 // SetupRouter initializes all routes
@@ -11,28 +12,20 @@ func SetupRouter() *gin.Engine {
 	r := gin.Default()
 
 	// Grouping routes under /v1/2025
-	v1 := r.Group("v1/2025")
-	{
-		v1.GET("/ping", Pong) // curl http://localhost:8080/v1/2025/ping
-	}
+	// v1 := r.Group("v1/2025")
+	// {
+	// 	v1.GET("/ping", Pong) // curl http://localhost:8080/v1/2025/ping
+	// }
 
 	v2 := r.Group("v2/2025")
 	{
-		v2.GET("/ping/:name", PongWithName) // curl http://localhost:8080/v2/2025/ping/John
+		//v2.GET("/ping/:name", PongWithName) // curl http://localhost:8080/v2/2025/ping/John
 		//v2.GET("/ping", PongWithUID)        // curl http://localhost:8080/v2/2025/ping?uid=12345
-		v2.GET("/ping", PongWithDefaultUID) // curl http://localhost:8080/v2/2025/ping?uid=12345
+		v2.GET("/ping", c.NewPongController().PongWithDefaultUID) // curl http://localhost:8080/v2/2025/ping?uid=12345
+		v2.GET("/user/1", c.NewUserController().GetUserByID)
 	}
 
 	return r
-}
-
-// Handler for /v2/2025/ping?uid=12345 (query parameter with default value)
-func PongWithDefaultUID(c *gin.Context) {
-	uid := c.DefaultQuery("uid", "guest") // If 'uid' is missing, default to "guest"
-
-	c.JSON(http.StatusOK, gin.H{
-		"message": "Hello, your UID is " + uid + "!",
-	})
 }
 
 func Pong(c *gin.Context) {
