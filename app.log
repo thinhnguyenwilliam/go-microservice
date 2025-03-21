@@ -1,0 +1,2 @@
+{"level":"debug","ts":1742548028.6908054,"caller":"cli/main.log.go:30","msg":"Debugging details","module":"auth"}
+{"level":"info","ts":1742548028.691371,"caller":"cli/main.log.go:31","msg":"User logged in","user":"john_doe"}

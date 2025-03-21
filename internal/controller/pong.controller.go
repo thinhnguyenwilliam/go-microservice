@@ -6,6 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// unit test: https://chatgpt.com/c/67d7fb39-671c-8005-87b1-03b0af2924ff
 type PongController struct{}
 
 func NewPongController() *PongController {
