@@ -4,3 +4,4 @@ config/production.yaml
 
 *.log
 *.env
+/app.log
