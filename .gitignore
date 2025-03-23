@@ -1,1 +1,5 @@
 docs/
+
+config/production.yaml
+
+app.log
