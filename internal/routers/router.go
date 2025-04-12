@@ -5,11 +5,13 @@ import (
 
 	"github.com/gin-gonic/gin"
 	c "github.com/thinhcompany/go-ecommerce-backend-api/internal/controller"
+	middleware "github.com/thinhcompany/go-ecommerce-backend-api/internal/middlewares"
 )
 
 // SetupRouter initializes all routes
 func SetupRouter() *gin.Engine {
 	r := gin.Default()
+	r.Use(middleware.AuthMiddleware()) // Apply authentication middleware
 
 	// Grouping routes under /v1/2025
 	// v1 := r.Group("v1/2025")

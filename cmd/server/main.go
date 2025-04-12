@@ -19,6 +19,7 @@ func main() {
 		AllowHeaders:     []string{"Origin", "Content-Type", "Authorization"},
 		ExposeHeaders:    []string{"Content-Length"},
 		AllowCredentials: true,
+		MaxAge:           12 * 60 * 60, // 12 hours
 	}))
 
 	r.Run(":8080") // Start server on port 8080
