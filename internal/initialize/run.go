@@ -5,6 +5,7 @@ import (
 	"log"
 
 	"github.com/thinhcompany/go-ecommerce-backend-api/global"
+	"go.uber.org/zap"
 )
 
 func Initialize() {
@@ -22,6 +23,8 @@ func Initialize() {
 
 	// Initialize the logger
 	InitializeLogger()
+	global.Logger.Info("Logger initialized successfully", zap.String("status", "ok"))
+
 	// Initialize the MySQL database connection
 	InitializeMySQL()
 	// Initialize the Redis connection

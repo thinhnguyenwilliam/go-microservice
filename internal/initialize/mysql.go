@@ -3,7 +3,6 @@ package initialize
 import (
 	"fmt"
 	"log"
-	"time"
 
 	"github.com/thinhcompany/go-ecommerce-backend-api/global"
 	"gorm.io/driver/mysql"
@@ -41,7 +40,7 @@ func InitializeMySQL() {
 	// Set connection pool settings
 	sqlDB.SetMaxIdleConns(cfg.MaxIdleConns)
 	sqlDB.SetMaxOpenConns(cfg.MaxOpenConns)
-	sqlDB.SetConnMaxLifetime(time.Duration(cfg.ConnMaxLifetime) * time.Second)
+	//sqlDB.SetConnMaxLifetime(time.Duration(cfg.ConnMaxLifetime) * time.Second)
 
 	fmt.Println("Connected to MySQL database:", cfg.DBName)
 }

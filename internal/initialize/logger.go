@@ -1,6 +1,10 @@
 package initialize
 
+import (
+	"github.com/thinhcompany/go-ecommerce-backend-api/global"
+	"github.com/thinhcompany/go-ecommerce-backend-api/pkg/logger"
+)
+
 func InitializeLogger() {
-	// Initialize the logger here
-	// This is a placeholder for the actual logger initialization code
+	global.Logger = logger.NewLoggerZap(global.Config.Log)
 }
