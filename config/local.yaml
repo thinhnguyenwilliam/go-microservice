@@ -1,17 +1,15 @@
 server:
   port: 8082
 
-databases:
-  - host: localhost
-    port: 3306
-    user: root
-    password: password
-    name: mydb1
-  - host: localhost
-    port: 3307
-    user: dev
-    password: devpass
-    name: mydb2
+mysql:
+  host: localhost
+  port: 3306
+  user: root
+  password: 1234
+  dbname: go_eco
+  maxIdleConns: 10
+  maxOpenConns: 100
+  connexMaxLifetime: 3600
 
 jwt:
   secret: supersecretkey
