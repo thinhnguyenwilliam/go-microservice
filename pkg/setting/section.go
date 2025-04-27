@@ -1,33 +1,36 @@
 package setting
 
 type Config struct {
-	Server struct {
-		Port int `yaml:"port"`
-	} `yaml:"server"`
+	Server ServerConfig `yaml:"server"`
+	MySQL  MySQLConfig  `yaml:"mysql"`
+	JWT    JWTConfig    `yaml:"jwt"`
+	Log    LogConfig    `yaml:"log"`
+}
 
-	MySQL struct {
-		Host              string `yaml:"host"`
-		Port              int    `yaml:"port"`
-		User              string `yaml:"user"`
-		Password          string `yaml:"password"`
-		DBName            string `yaml:"dbname"`
-		MaxIdleConns      int    `yaml:"maxIdleConns"`
-		MaxOpenConns      int    `yaml:"maxOpenConns"`
-		ConnexMaxLifetime int    `yaml:"connexMaxLifetime"`
-	} `yaml:"mysql"`
+type ServerConfig struct {
+	Port int `yaml:"port"`
+}
 
-	JWT struct {
-		Secret string `yaml:"secret"`
-	} `yaml:"jwt"`
+type MySQLConfig struct {
+	Host              string `yaml:"host"`
+	Port              int    `yaml:"port"`
+	User              string `yaml:"user"`
+	Password          string `yaml:"password"`
+	DBName            string `yaml:"dbname"`
+	MaxIdleConns      int    `yaml:"maxIdleConns"`
+	MaxOpenConns      int    `yaml:"maxOpenConns"`
+	ConnexMaxLifetime int    `yaml:"connexMaxLifetime"`
+}
 
-	Log LogConfig `yaml:"log"`
+type JWTConfig struct {
+	Secret string `yaml:"secret"`
 }
 
 type LogConfig struct {
 	LogLevel    string `yaml:"logLevel"`
 	FileLogName string `yaml:"fileLogName"`
-	MaxSize     int    `yaml:"maxSize"`
+	MaxSize     int    `yaml:"maxSize"` // in megabytes
 	MaxBackups  int    `yaml:"maxBackups"`
-	MaxAge      int    `yaml:"maxAge"`
+	MaxAge      int    `yaml:"maxAge"` // in days
 	Compress    bool   `yaml:"compress"`
 }
