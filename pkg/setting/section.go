@@ -5,6 +5,7 @@ type Config struct {
 	MySQL  MySQLConfig  `yaml:"mysql"`
 	JWT    JWTConfig    `yaml:"jwt"`
 	Log    LogConfig    `yaml:"log"`
+	Redis  RedisConfig  `yaml:"redis"`
 }
 
 type ServerConfig struct {
@@ -33,4 +34,11 @@ type LogConfig struct {
 	MaxBackups  int    `yaml:"maxBackups"`
 	MaxAge      int    `yaml:"maxAge"` // in days
 	Compress    bool   `yaml:"compress"`
+}
+
+type RedisConfig struct {
+	Host     string `yaml:"host"`
+	Port     int    `yaml:"port"`
+	Password string `yaml:"password"`
+	DB       int    `yaml:"db"`
 }

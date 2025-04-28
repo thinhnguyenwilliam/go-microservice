@@ -21,3 +21,9 @@ log:
   maxBackups: 5
   maxAge: 28          # days
   compress: true
+
+redis:
+  host: 127.0.0.1
+  port: 6388
+  password: ""
+  db: 0

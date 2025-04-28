@@ -28,7 +28,10 @@ func Initialize() {
 	// Initialize the MySQL database connection
 	InitializeMySQL()
 	// Initialize the Redis connection
+
 	InitializeRedis()
+	global.Logger.Info("Redis initialized successfully", zap.String("status", "ok"))
+
 	r := InitializeRouter()
 	r.Run(":8002") // listen and serve on
 }
