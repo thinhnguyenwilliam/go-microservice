@@ -9,7 +9,8 @@ type Config struct {
 }
 
 type ServerConfig struct {
-	Port int `yaml:"port"`
+	Port int    `mapstructure:"port" yaml:"port" json:"port"`
+	Mode string `yaml:"mode"`
 }
 
 type MySQLConfig struct {
